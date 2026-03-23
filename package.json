@@ -1,0 +1,20 @@
+{
+    "name": "medicine-reminder",
+    "version": "1.0.0",
+    "description": "MedCare - Full-Stack Medicine Reminder App",
+    "private": true,
+    "scripts": {
+        "install:frontend": "cd frontend && npm install",
+        "install:backend": "cd backend && pip install -r requirements.txt",
+        "install:all": "npm run install:frontend && npm run install:backend",
+        "dev:frontend": "cd frontend && npm run dev",
+        "dev:backend": "cd backend && python -m uvicorn main:app --reload --port 8000",
+        "dev": "concurrently --names \"API,WEB\" --prefix-colors \"blue,green\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+        "build": "cd frontend && npm run build",
+        "start": "npm run build && npm run dev:backend",
+        "postinstall": "npm run install:frontend"
+    },
+    "devDependencies": {
+        "concurrently": "^9.1.0"
+    }
+}
